@@ -15,7 +15,7 @@ import pandas as pd
 class Classifiers():
     def __init__(self,data):
         ''' 
-        TODO: Write code to convert the given pandas dataframe into training and testing data 
+        Write code to convert the given pandas dataframe into training and testing data 
         # all the data should be nxd arrays where n is the number of samples and d is the dimension of the data
         # all the labels should be nx1 vectors with binary labels in each entry 
         '''
@@ -51,7 +51,7 @@ class Classifiers():
         plt.show()
 
     def test_clf(self, clf, parameters, classifier_name=''):
-        # TODO: Fit the classifier and extrach the best score, training score and parameters
+        # Fit the classifier and extrach the best score, training score and parameters
 
         grid_search = GridSearchCV(clf, parameters, cv=5, scoring='accuracy')
         grid_search.fit(self.training_data, self.training_labels.ravel())
@@ -70,7 +70,7 @@ class Classifiers():
 
 
     def classifyNearestNeighbors(self):
-        # TODO: Write code to run a Nearest Neighbors classifier
+        # Write code to run a Nearest Neighbors classifier
         parameters = {
             'n_neighbors': range(1, 20, 2),
             'leaf_size': range(5, 35, 5)
@@ -78,14 +78,14 @@ class Classifiers():
         self.test_clf(KNeighborsClassifier(), parameters, classifier_name='KNN')
 
     def classifyLogisticRegression(self):
-        # TODO: Write code to run a Logistic Regression classifier
+        # Write code to run a Logistic Regression classifier
         parameters = {
             'C': [0.1, 0.5, 1, 5, 10, 50, 100]
         }
         self.test_clf(LogisticRegression(), parameters, classifier_name='Logistic Regression')
 
     def classifyDecisionTree(self):
-        # TODO: Write code to run a Logistic Regression classifier
+        # Write code to run a Logistic Regression classifier
         parameters = {
             'max_depth': list(range(1, 51)),
             'min_samples_split': list(range(2, 11))
@@ -95,7 +95,7 @@ class Classifiers():
 
 
     def classifyRandomForest(self):
-            # TODO: Write code to run a Random Forest classifier
+            # Write code to run a Random Forest classifier
             parameters = {
                 'max_depth': [1, 2, 3, 4, 5],
                 'min_samples_split': list(range(2, 11))
@@ -104,7 +104,7 @@ class Classifiers():
             self.test_clf(RandomForestClassifier(), parameters, classifier_name='Random Forest')
 
     def classifyAdaBoost(self):
-            # TODO: Write code to run a AdaBoost classifier
+            # Write code to run a AdaBoost classifier
             parameters = {
                 'n_estimators': list(range(10, 81, 10))
             }
